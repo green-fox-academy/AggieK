@@ -6,7 +6,7 @@ public class Reverse {
         int [] aj = {3,4,5,6,7};
         System.out.println("Before reverse: " + Arrays.toString(aj));
         reverse (aj);
-        System.out.println("Before reverse: " + Arrays.toString(aj));
+        System.out.println("After reverse: " + Arrays.toString(aj));
     }
 
     public static void reverse(int[] array) {
