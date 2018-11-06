@@ -22,4 +22,14 @@ public class HeWillNever {
 
         System.out.println(out);
     }
+    public static String myMessage(int[] decript, Map){
+        String out = "";
+        for (int i = 0; i < decript.length(); i++) {
+            out +=
+        }
+        return out
+
+
+    }
+
 }
