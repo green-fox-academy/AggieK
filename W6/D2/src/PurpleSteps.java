@@ -4,27 +4,18 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class PositionSquare {
+public class PurpleSteps {
+    public static void mainDraw(Graphics graphics) {
+        // Reproduce this:
+        // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
 
-    public static void mainDraw(Graphics graphics){
-        // create a square drawing function that takes 2 parameters:
-        // the x and y coordinates of the square's top left corner
-        // and draws a 50x50 square from that point.
-        // draw 3 squares with that function.
-        // avoid code duplication.
-
-        for (int i = 0; i <4 ; i++) {
-            int x = (int) (Math.random()*270);
-            int y = (int) (Math.random()*270);
-            int r = (int) (Math.random()*255);
-            int g = (int) (Math.random()*255);
-            int b = (int) (Math.random()*255);
-            graphics.setColor(new Color(r, g, b));
-            graphics.drawRect(x,y,50,50);
+        for (int i = 0; i < 20; i++) {
+                graphics.setColor(new Color(102,51,153));
+            int z = i*10;
+            graphics.fillRect(z,z,10,10);
         }
+
     }
-
-
 
     // Don't touch the code below
     static int WIDTH = 320;
@@ -48,5 +39,4 @@ public class PositionSquare {
             mainDraw(graphics);
         }
     }
-
 }
