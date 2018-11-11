@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class HeWillNever {
-    public static void main(String... args){
+    public static void main(String... args) {
         String out = "";
         int[] notSoCrypticMessage = {1, 12, 1, 2, 11, 1, 7, 11, 1, 49, 1, 3, 11, 1, 50, 11};
 
@@ -20,14 +20,17 @@ public class HeWillNever {
         // Your job is to decode the notSoCrypticMessage by using the hashmap as a look up table
         // Assemble the fragments into the out variable
 
-        System.out.println(out);
-    }
-    //public static String myMessage(int[] decript, Map){
-      //String out = "";
-      //  for (int i = 0; i < decript.length(); i++) {
-      //      out +=
-       // }
-      //  return out
-
+        System.out.println(mysong(notSoCrypticMessage, map));
 
     }
+    public static String mysong (int[]list, Map links){
+    String out ="";
+    for (int i = 0; i < list.length ; i++) {
+        out += links.get(list[i]);
+    }
+        return out;
+}
+
+
+
+}
