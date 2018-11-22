@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class PostItMain {
 
     public static void main(String[] args) {
@@ -14,6 +12,6 @@ public class PostItMain {
      System.out.println(myPostIt01);
      System.out.println(myPostIt02);
      System.out.println(myPostIt03);
-
     }
 }
+
