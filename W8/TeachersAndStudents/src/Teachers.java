@@ -5,7 +5,7 @@ public class Teachers {
     private int numberOfStudents;
     private int questionsAnswered;
 
-    public Teachers (String name){
+    public Teachers (String name, String subject){
         this.name = name;
         this.subject = subject;
         questionsAnswered = 0;
@@ -22,6 +22,6 @@ public class Teachers {
     }
 
     public String toString() {
-        return "Teacher " + name + "had " + numberOfStudents + "students and answered " + questionsAnswered + "questions. " ;
+        return "Teacher " + name + " had " + numberOfStudents + " students and answered " + questionsAnswered + " questions. " ;
     }
 }

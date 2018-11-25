@@ -21,6 +21,6 @@ public class Students {
 
     @Override
     public String toString() {
-        return name + "completed " + subjectLearned + " classes and asked " + questionAsked + "questions.";
+        return name + " completed " + subjectLearned + " classes and asked " + questionAsked + " questions.";
     }
 }
