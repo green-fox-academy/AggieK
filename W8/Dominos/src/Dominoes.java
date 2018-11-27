@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dominos {
+public class Dominoes {
     public static void main(String[] args) {
         List<Domino> dominoes = initializeDominoes();
         // You have the list of Dominoes
