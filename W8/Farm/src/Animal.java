@@ -21,6 +21,22 @@ public class Animal {
         thirst --;
     }
 
+    public int getHunger() {
+        return hunger;
+    }
+
+    public void setHunger(int hunger) {
+        this.hunger = hunger;
+    }
+
+    public int getThirst() {
+        return thirst;
+    }
+
+    public void setThirst(int thirst) {
+        this.thirst = thirst;
+    }
+
     public void play(){
         hunger++;
         thirst++;

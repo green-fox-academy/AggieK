@@ -7,8 +7,38 @@ public class Dominoes {
         // You have the list of Dominoes
         // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
         // eg: [2, 4], [4, 3], [3, 5] ...
-
+        dominoes = orderDominoes(dominoes);
         System.out.println(dominoes);
+    }
+
+    private static List<Domino> orderDominoes(List<Domino> dominoes){
+        List<Domino> orderedDominoes = new ArrayList<>();
+
+        Domino mostRight = replaceDomino(dominoes,orderedDominoes,dominoes.get(0));
+
+        while (dominoes.size() > 0) {
+            Domino nextDomino = findNextDomino(mostRight.getRightSide(), dominoes);
+        if (nextDomino == null){
+            return orderedDominoes;
+        }
+        mostRight = replaceDomino(dominoes, orderedDominoes, nextDomino);
+        }
+        return orderedDominoes;
+    }
+
+    private static Domino findNextDomino(int rightSide, List<Domino> dominoes){
+        for (Domino domino: dominoes){
+            if (domino.getLeftSide() == rightSide){
+                return domino;
+            }
+        }
+        return null;
+    }
+
+    private static Domino replaceDomino (List<Domino> dominoes, List<Domino> orderedDominoes,Domino chosenDomino){
+        orderedDominoes.add(chosenDomino);
+        dominoes.remove(chosenDomino);
+        return chosenDomino;
     }
 
     static List<Domino> initializeDominoes() {
