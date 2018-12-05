@@ -1,17 +1,16 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class DivideByZero {
     public static void main(String[] args) {
-        System.out.println("Please type in an integer and it will be divided by 10!");
+        System.out.println("Pls give me an integer and we will divide 10 with it.");
         Scanner scanner = new Scanner(System.in);
-        int numerator = scanner.nextInt();
+        int divider = scanner.nextInt();
 
         try {
-            int result = numerator / 10;
+            int result = 10 / divider;
             System.out.println(result);
-        } catch(ArithmeticException e){
-            System.out.println("Can't divide zero!");
+        } catch (ArithmeticException e) {
+            System.out.println("We can't divide by zero!");
         }
     }
 }
