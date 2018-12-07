@@ -24,7 +24,7 @@ public class Garden {
         return counter;
     }
 
-    public void wateringGarden(int water) {
+    public void wateringGarden(double water) {
         for (Plant plant : myGarden) {
             plant.wateringPlant(water / countThirsty());
         }

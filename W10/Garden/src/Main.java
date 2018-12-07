@@ -19,5 +19,10 @@ public class Main {
         System.out.println("Watering with 40");
         garden.wateringGarden(40);
         System.out.println(garden);
+
+        System.out.println("Watering with 80");
+        garden.wateringGarden(70);
+        System.out.println(garden);
     }
 }
+

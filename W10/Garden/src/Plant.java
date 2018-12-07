@@ -4,14 +4,14 @@ public class Plant {
 
     public Type type;
     public String color;
-    public int currentWater = 0;
+    public double currentWater = 0.0;
     public boolean needsWatering;
     public double absorbWater;
-    public int waterTreshold;
+    public double waterTreshold;
 
     public enum Type {Flower, Tree}
 
-    public Plant(Type type, String color, double absorbWater, int waterTreshold) {
+    public Plant(Type type, String color, double absorbWater, double waterTreshold) {
         this.type = type;
         this.color = color;
         this.absorbWater = absorbWater;
@@ -19,12 +19,10 @@ public class Plant {
     }
 
     public boolean ifThirsty() {
-        if (currentWater < waterTreshold)
-            needsWatering = true;
-        return needsWatering;
+        return currentWater < waterTreshold;
     }
 
-    public void wateringPlant(int water) {
+    public void wateringPlant(double water) {
         currentWater += water * absorbWater;
     }
 
