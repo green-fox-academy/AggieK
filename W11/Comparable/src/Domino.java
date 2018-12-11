@@ -23,8 +23,8 @@ public class Domino implements Comparable<Domino> {
     }
 
     @Override
-    public int compareTo(Domino domino) {
-        Integer.compare(this.left, other.left);
+    public int compareTo(Domino other) {
+        int diff = Integer.compare(this.left, other.left);
+        return diff;
     }
-
 }

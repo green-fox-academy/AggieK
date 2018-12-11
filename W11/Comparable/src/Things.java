@@ -1,4 +1,4 @@
-public class Things {
+public class Things implements Comparable<Things> {
         private String name;
         private boolean completed;
 
@@ -14,6 +14,9 @@ public class Things {
         public String toString() {
             return (completed ? "[x] " : "[ ] ") + name;
         }
-    }
 
+    @Override
+    public int compareTo(Things o) {
+        return 0;
+    }
 }
