@@ -1,5 +1,7 @@
+package main.java.music;
+
 public class Violin extends StringedInstruments {
-    public static final String name = "Violin";
+    public static final String name = "main.java.music.Violin";
 
     public Violin (String name, int numberOfStrings){
         super(name, 4);
