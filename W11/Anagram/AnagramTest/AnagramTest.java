@@ -1,3 +1,5 @@
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -8,23 +10,38 @@ import static org.junit.Assert.*;
 public class AnagramTest {
 
     @Test
-    public void testAnagramChecker(){
-       String word1 = "rail safety";
-       String word2 = "fairy tales";
-
-        Map <Character,Integer> expectedResult_Word1 = new HashMap<>();
-        expectedResult_Word1.put('r', 1);
-        expectedResult_Word1.put('a', 2);
-        expectedResult_Word1.put('i', 1);
-        expectedResult_Word1.put('l', 1);
-        expectedResult_Word1.put('s',1);
-        expectedResult_Word1.put('f', 1);
-        expectedResult_Word1.put('e',1);
-        expectedResult_Word1.put('t', 1);
-        expectedResult_Word1.put('y',1);
-        expectedResult_Word1.put(' ', 1);
-
-        Map<Character, Integer> resultWord1 = Anagram.anagramChecker(word1);
-        assertEquals(expectedResult_Word1, resultWord1);
-        }
+    public void anagramChecker() {
+        Anagram anagram = new Anagram();
+        String word1 = "god";
+        String word2 = "dog";
+        boolean result = anagram.ifAnagram(word1, word2);
+        assertTrue(result);
     }
+
+   @Test
+    public void anagramChecker_withSpace() {
+        Anagram anagram = new Anagram();
+        String word1 = "rail safety";
+        String word2 = "fairy tales";
+        boolean result = anagram.ifAnagram(word1, word2);
+        assertTrue(result);
+    }
+
+    @Test
+    public void anagramChecker_empty(){
+        Anagram anagram = new Anagram();
+        String word1 = "";
+        String word2 = "";
+        boolean result = anagram.ifAnagram(word1, word2);
+        assertTrue(result);
+    }
+
+    @Test
+    public void anagramChecker_null(){
+        Anagram anagram = new Anagram();
+        String word1 = null;
+        String word2 = null;
+        boolean result = anagram.ifAnagram(word1, word2);
+        assertFalse(result);
+    }
+}
