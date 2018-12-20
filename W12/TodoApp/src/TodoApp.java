@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ public class TodoApp {
         TodoList todolist = new TodoList();
 
         if (args.length == 0){
-            TodoList.printUsage();
+            System.out.println(TodoList.printUsage());
         }else if (args[0].equals("-l")) {
             todolist.printTasks();
         }else if (args[0].equals("-a")) {

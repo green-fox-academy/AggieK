@@ -32,7 +32,7 @@ public class TodoList implements Serializable {
 
     public void remove(String newTask) {
         TodoList list = FileManipulation.readTodoListFromFile(filename);
-        Todo todo = new Todo (newTask);
+
         list.list.remove(newTask);
         FileManipulation.writeTodoListToFile(filename, list);
     }
@@ -41,11 +41,12 @@ public class TodoList implements Serializable {
     }
 
     public String printTasks() {
+        TodoList list = FileManipulation.readTodoListFromFile(filename);
         String string = "";
-        for (int i = 0; i < list.size(); i++) {
-            string += i + 1 + " ";
-            string += list.get(i).toString();
-        }
+//        for (int i = 0; i < list.size(); i++) {
+//            string += i + 1 + " ";
+//            string += list.get(i).toString();
+//        }
         return string;
     }
 }
