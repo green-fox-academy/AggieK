@@ -10,7 +10,7 @@ public class TodoApp {
         if (args.length == 0){
             System.out.println(TodoList.printUsage());
         }else if (args[0].equals("-l")) {
-            todolist.printTasks();
+            System.out.println(todolist.printTasks());
         }else if (args[0].equals("-a")) {
             todolist.add(args[1]);
         }else if (args[0].equals("-r")) {
