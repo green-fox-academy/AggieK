@@ -4,7 +4,7 @@ public class FileManipulation {
 
     public static TodoList readTodoListFromFile(String filename) {
         TodoList todoList = new TodoList();
-       try {
+        try {
             FileInputStream fileInputStream = new FileInputStream(filename);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             todoList = (TodoList) objectInputStream.readObject();
@@ -27,7 +27,9 @@ public class FileManipulation {
             objectOutputStream.writeObject(todoList);
             objectOutputStream.flush();
             objectOutputStream.close();
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

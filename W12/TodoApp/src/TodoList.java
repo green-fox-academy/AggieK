@@ -31,6 +31,10 @@ public class TodoList implements Serializable {
     }
 
     public void remove(String newTask) {
+        TodoList list = FileManipulation.readTodoListFromFile(filename);
+        Todo todo = new Todo (newTask);
+        list.list.remove(newTask);
+        FileManipulation.writeTodoListToFile(filename, list);
     }
 
     public void completed(String newTask) {
