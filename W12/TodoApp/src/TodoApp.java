@@ -6,7 +6,7 @@ public class TodoApp {
     public static void main(String[] args) {
         TodoList todolist = new TodoList();
 
-        if (args.length ==0){
+        if (args.length == 0){
             TodoList.printUsage();
         }else if (args[0].equals("-l")) {
             todolist.printTasks();

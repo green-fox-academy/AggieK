@@ -10,7 +10,7 @@ public class Todo implements Serializable {
         this.completed = false;
     }
 
-    public void completed(){
+    public void complete(){
         this.completed = true;
     }
 

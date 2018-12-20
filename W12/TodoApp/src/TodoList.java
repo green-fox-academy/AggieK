@@ -1,16 +1,15 @@
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class TodoList implements Serializable {
 
-   private ArrayList<Todo> list;
+    private ArrayList<Todo> list;
 
-   private String filename = "../src/todolist.txt";
+    private String filename = "../src/todolist.txt";
 
-   public TodoList(){
-       this.list = new ArrayList<Todo>();
-   }
+    public TodoList() {
+        this.list = new ArrayList<Todo>();
+    }
 
     public static String printUsage() {
         String usage = "Command Line Todo application\n" +
@@ -21,29 +20,29 @@ public class TodoList implements Serializable {
                 " -a   Adds a new task\n" +
                 " -r   Removes a task\n" +
                 " -c   Completes a task";
-     return usage;
+        return usage;
     }
 
+    public void add(String newTask) {
+        TodoList list = FileManipulation.readTodoListFromFile(filename);
+        Todo todo = new Todo(newTask);
+        list.list.add(todo);
+        FileManipulation.writeTodoListToFile(filename, list);
+    }
 
-    public  void add(String newTask){
-       TodoList list = FileManipulation.readTodoListFromFile(filename);
-       Todo todo = new Todo(newTask);
-       list.list.add(todo);
-       FileManipulation.writeTodoListtoFile(filename,list);
-   }
+    public void remove(String newTask) {
+    }
 
-
-    public  void remove(String newTask){}
-
-    public  void completed(String newTask){}
+    public void completed(String newTask) {
+    }
 
     public String printTasks() {
-       String string = "";
-        for (int i = 0; i < list.size() ; i++) {
+        String string = "";
+        for (int i = 0; i < list.size(); i++) {
             string += i + 1 + " ";
             string += list.get(i).toString();
         }
-    return string;
+        return string;
     }
 }
 

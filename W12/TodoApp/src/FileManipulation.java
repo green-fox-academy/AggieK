@@ -2,7 +2,6 @@ import java.io.*;
 
 public class FileManipulation {
 
-
     public static TodoList readTodoListFromFile(String filename) {
         TodoList todoList = new TodoList();
        try {
@@ -20,7 +19,7 @@ public class FileManipulation {
         return todoList;
     }
 
-    public static void writeTodoListtoFile(String filename, TodoList todoList) {
+    public static void writeTodoListToFile(String filename, TodoList todoList) {
         FileOutputStream fileOutputStream = null;
         try {
             fileOutputStream = new FileOutputStream(filename);
