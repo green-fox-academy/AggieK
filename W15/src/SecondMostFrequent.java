@@ -5,7 +5,7 @@ public class SecondMostFrequent {
 
   public static void main(String[] args) {
 
-    int[] numbers = {1, 2, 3, 4, 5, 5, 5, 2, 3, 3, 5, 4, 8, 9};
+    int[] numbers = {1, 2, 4, 4, 5, 5, 5, 2, 3, 3, 5, 4, 8, 9};
 
     HashMap<Integer, Integer> aHashMap = createAHashMap(numbers);
     Map.Entry theMostFrequent = findTheMostFrequent(aHashMap);

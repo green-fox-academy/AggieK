@@ -13,7 +13,7 @@ public class DrawATriangle {
     String matrixTriangle[][] = new String[row][column];
     for (int i = 0; i < row; i++) {
       for (int j = 0; j < column; j++) {
-        if (row - i-2 < j && j < row + i) {
+        if (row - i - 2 < j && j < row + i) {
           matrixTriangle[i][j] = "*";
         } else matrixTriangle[i][j] = " ";
       }
