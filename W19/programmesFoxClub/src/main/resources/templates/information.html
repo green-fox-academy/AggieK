@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div class="col-md-12">
+    <ul>
+        <li>
+            <a href="/information">Information</a>
+        </li>
+    </ul>
+    <br>
+    <img src="/main/resources/static/greenfox.png">
+
+    <p style="color:grey" th:text = "'This is '+ ${name} + '. Currently living on pizza and lemonade. He knows 2 tricks.'" > </p>
+
+    <h1>Knows tricks</h1>
+    <ul>
+        <li>
+            <p>Write HTML</p>
+        </li>
+        <li>
+            <p>Code in Java</p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

@@ -3,9 +3,7 @@ package com.books.demo.Controllers;
 import com.books.demo.Book;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/web")
@@ -21,8 +19,21 @@ public class bootstrapController {
     return "bootstrap";
   }
 
-  @PostMapping("/postHandler")
-  public String postHandler(){
-      return "redirect:/";
+  @RequestMapping("/postHandler")
+  public String postHandler(@RequestParam String title, @RequestParam String author, @RequestParam String third){
+    System.out.println(title + ", " + author + ", " + third);
+    return "redirect:/web/getHandler";
     }
+
+//  RequestMapping("/postHandler")
+//  public String postHandler(@ModelAttribute Book book){
+//    System.out.println(book.setTitle() + ", " + book.setId());
+//    return "redirect:/web/getHandler";
+//  }
+
+  //  RequestMapping("/postHandler")
+//  public String postHandler(@ModelAttribute(value="third")String third){
+//    System.out.println(third);
+//    return "redirect:/web/getHandler";
+//  }
   }
