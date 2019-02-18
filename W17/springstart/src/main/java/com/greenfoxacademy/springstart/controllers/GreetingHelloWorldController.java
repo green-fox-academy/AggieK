@@ -22,7 +22,7 @@ public class GreetingHelloWorldController {
   @RequestMapping("web/greetingTheWorld")
   public String greetingTheWorld(Model model) {
     model.addAttribute("greeting", randomGreeting());
-    model.addAttribute("color", randomRGB());
+    model.addAttribute("color", randomRGB().toString());
     model.addAttribute("fontSize", randomFontSize());
     return "greetingManyLanguage";
   }
@@ -39,12 +39,11 @@ public class GreetingHelloWorldController {
     return (int)(Math.random() * 100) + 10;
   }
 
-  // there might be some problem since the only color generated is black(0,0,0)
-  private Color randomRGB(){
+  private String randomRGB(){
     int randomRed = (int)(Math.random()*256);
     int randomGreen = (int)(Math.random()*256);
     int randomBlue = (int)(Math.random()*256);
-    Color randomRGB = new Color (randomRed, randomGreen, randomBlue);
+    String randomRGB ="rgb( " + randomRed +", " + randomGreen +", "  + randomBlue + ")";
     return randomRGB;
   }
 }
