@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show All Bankaccounts</title>
+</head>
+<body>
+<table>
+    <caption> Bankaccounts at the Simba bank</caption>
+    <tr>
+        <th>Stat</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Animal</th>
+        <th>Status</th>
+        <th>Good/Bad</th>
+
+    </tr>
+    <tr th:each="account: ${bankAccounts}">
+        <td th:text="${accountStat.count}"></td>
+        <td th:text="${account.name}"></td>
+        <td th:text="${account.balance}"></td>
+        <td th:text="${account.animalType}"></td>
+        <td th:text="${account.royalStatus}? 'King': 'Commoner'" th:style="${account.royalStatus}? 'color:purple': 'color:black'"></td>
+        <td th:text="${account.goodOrBad}? 'Good guy':'Bad guy'"></td>
+
+    </tr>
+</table>
+
+<div>
+    <a th:href="@{/raiseBalance}">To raise the balance</a>
+</div>
+
+<div>
+    <a th:href="@{/createANewAccount}">To create a new account</a>
+</div>
+
+</body>
+</html>

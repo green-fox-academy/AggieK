@@ -1,9 +1,12 @@
 package com.gfa.programerfoxclub.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.ArrayList;
 
 public class Fox {
 
+@Autowired
   private String name;
   private ArrayList<String> tricksLearned;
   private ArrayList<String> foodEaten;

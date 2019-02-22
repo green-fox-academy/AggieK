@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create A New Account</title>
+</head>
+<body>
+<h1>Please fill the form below to create a new account</h1>
+<form th:action="@{createANewAccount}" method="post">
+    <div>
+        <input type="text" name="name" placeholder="Name" required/>
+    </div>
+    <div>
+        <input type="number" name="balance" placeholder="Balance" required/>
+    </div>
+    <div>
+        <input type="text" name="animalType" placeholder="Animal Type" required/>
+    </div>
+    <div>
+        <label for="royalStatus">Royal status</label>
+        <select id="royalStatus" name="royalSatus">
+            <option value="true">Royal</option>
+            <option value="false">Commoner</option>
+        </select>
+    </div>
+    <div>
+        <label for="goodOrBad">Good or bad guy</label>
+        <select id="goodOrBad" name="goodOrBad">
+            <option value="true">Good guy</option>
+            <option value="false">Bad guy</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Create">
+    </div>
+</form>
+</body>
+</html>

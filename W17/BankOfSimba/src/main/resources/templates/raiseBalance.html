@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Raise Balance</title>
+</head>
+<body>
+<h2>Raising Balance</h2>
+<form action="/raiseBalance" method="post">
+    <div>
+        <label for="animal"> Select an animal to raise their balance</label>
+        <select id="animal" name = "name">
+            <option th:each="account:${bankAccounts}" th:text="${account.name}"></option>
+        </select>
+    </div>
+
+    <div>
+        <input type="submit" value="Add">
+    </div>
+</form>
+
+</body>
+</html>
