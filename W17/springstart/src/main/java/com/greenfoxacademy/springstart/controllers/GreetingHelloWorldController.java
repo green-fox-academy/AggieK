@@ -46,4 +46,12 @@ public class GreetingHelloWorldController {
     String randomRGB ="rgb( " + randomRed +", " + randomGreen +", "  + randomBlue + ")";
     return randomRGB;
   }
+
+//  private Color randomRGB(){
+//    int randomRed = (int)(Math.random()*256);
+//    int randomGreen = (int)(Math.random()*256);
+//    int randomBlue = (int)(Math.random()*256);
+//    Color randomRGB = new Color (randomRed, randomGreen, randomBlue);
+//    return randomRGB;
+//  }
 }
