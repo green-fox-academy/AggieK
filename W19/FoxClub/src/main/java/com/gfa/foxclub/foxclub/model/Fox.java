@@ -10,19 +10,21 @@ public class Fox {
   private ArrayList<Trick> completedTricks = new ArrayList<>();
   private ArrayList<String> actionHistory = new ArrayList<>();
 
-  public Fox(String name){
+  public Fox(){
     this.name = name;
+    this.food = "brisket";
+    this.drink = "wine";
   }
 
-  public Fox(String name, String food, String drink) {
+  public Fox(String name) {
     this.name = name;
-    this.food = food;
-    this.drink = drink;
+    this.food = "brisket";
+    this.drink = "wine";
   }
 
-  public int trickCounter(){
-    return completedTricks.size();
-  }
+//  public int trickCounter(){
+//    return completedTricks.size();
+//  }
 
   public String getName() {
     return name;

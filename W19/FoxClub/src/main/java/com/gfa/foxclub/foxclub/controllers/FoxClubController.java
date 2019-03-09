@@ -70,7 +70,7 @@ public class FoxClubController {
   }
 
   @PostMapping("/trickstore")
-  public String teachTheFox(@RequestParam(value="name") String name, @ModelAttribute(value="trick") String trickName){
+  public String teachTheFox(@RequestParam(value="name") String name, @ModelAttribute(value="tricks") String trickName){
     foxService.teachTheFox(name, trickName);
 
     return "redirect:/information?name=" + name;

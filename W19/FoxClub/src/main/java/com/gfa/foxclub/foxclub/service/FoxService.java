@@ -39,8 +39,8 @@ public class FoxService {
 
     String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date());
 
-    String actionDrink = timestamp + " Drink has been changed from: " + currentDrink + " to " + drink + " .";
-    String actionFood = timestamp + " Food has been changed from: " + currentFood + " to " + food + " .";
+    String actionDrink = timestamp + " : Drink has been changed from: " + currentDrink + " to " + drink + " .";
+    String actionFood = timestamp + " : Food has been changed from: " + currentFood + " to " + food + " .";
     fox.getActionHistory().add(actionDrink);
     fox.getActionHistory().add(actionFood);
   }
@@ -51,7 +51,7 @@ public class FoxService {
     fox.getCompletedTricks().add(new Trick(trickName));
 
     String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date());
-    String actionTrick = timestamp + "New skill added: " + trickName + " .";
+    String actionTrick = timestamp + " : Learned to: " + trickName + " .";
     fox.getActionHistory().add(actionTrick);
   }
 
