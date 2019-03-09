@@ -7,7 +7,8 @@ public class Fox {
   private String name;
   public String food;
   public String drink;
-  private ArrayList<Trick> completedTricks;
+  private ArrayList<Trick> completedTricks = new ArrayList<>();
+  private ArrayList<String> actionHistory = new ArrayList<>();
 
   public Fox(String name){
     this.name = name;
@@ -17,6 +18,10 @@ public class Fox {
     this.name = name;
     this.food = food;
     this.drink = drink;
+  }
+
+  public int trickCounter(){
+    return completedTricks.size();
   }
 
   public String getName() {
@@ -49,5 +54,13 @@ public class Fox {
 
   public void setCompletedTricks(ArrayList<Trick> completedTricks) {
     this.completedTricks = completedTricks;
+  }
+
+  public ArrayList<String> getActionHistory() {
+    return actionHistory;
+  }
+
+  public void setActionHistory(ArrayList<String> actionHistory) {
+    this.actionHistory = actionHistory;
   }
 }

@@ -20,8 +20,4 @@ private TrickRepository trickRepository;
   public ArrayList<String> displayTricks (){
     return trickRepository.getTricksToLearn();
   }
-
-  public int trickCount(){
-    return listOfTricks.size();
-  }
 }

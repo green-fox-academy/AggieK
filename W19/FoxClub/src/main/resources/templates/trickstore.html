@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <div>
+        <ul>
+            <li><a th:href="'/information?name=' + ${fox.getName()}"> Information</a></li>
+            <li><a th:href="'/nutrition?name=' + ${fox.getName()}">Nutrition Store</a></li>
+            <li><a th:href="'/trickstore?name=' + ${fox.getName()}">Trick Store</a></li>
+            <li><a th:href="'/actionlog?name=' + ${fox.getName()}">Action History</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div>
+    <h1>Teach your Fox</h1>
+    <br>
+    <div>
+        <form th:action="'/trickstore?name=' + ${fox.getName()}" method = post>
+            <label for="trick">Choose something to learn:</label>
+            <select id="trick" name="tricks">
+                <option th:each="trick:${tricks}" th:value="${trick}" th:text="${trick}"></option>
+            </select>
+            <input type="submit" value ="Done"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

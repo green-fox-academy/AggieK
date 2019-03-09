@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <div>
+        <ul>
+            <li><a th:href="'/information?name=' + ${fox.getName()}"> Information</a></li>
+            <li><a th:href="'/nutrition?name=' + ${fox.getName()}">Nutrition Store</a></li>
+            <li><a th:href="'/trickstore?name=' + ${fox.getName()}">Trick Store</a></li>
+            <li><a th:href="'/actionlog?name=' + ${fox.getName()}">Action History</a></li>
+        </ul>
+    </div>
+</nav>
+<br>
+<h1 th:text="'Action History of '+ ${fox.getName()}"></h1>
+<br>
+<ul>
+    <li th:each="action:${fox.getActionHistory()}" th:text="${action}"></li>
+</ul>
+
+</body>
+</html>
