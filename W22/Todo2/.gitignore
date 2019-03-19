@@ -1,3 +1,4 @@
+HELP.md
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -15,7 +16,7 @@
 .idea
 *.iws
 *.iml
- *.bat gradle settings.gradle gradlew *.jar *.properties *.ipr
+*.ipr
 /out/
 
 ### NetBeans ###
