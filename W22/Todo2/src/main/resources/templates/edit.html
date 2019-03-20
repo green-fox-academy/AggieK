@@ -8,6 +8,9 @@
 <h1>Edit Todo</h1>
 <br>
 <div>
+    <form action="/assignee" method="get"></form>
+</div>
+<div>
     <form action="'/todo/' + ${id}+ 'edit'" method="post" th:object="${todo}">
         <label for="title">Todo description</label>
         <input type="text" th:field="*{title}" name="title" id="title" required>

@@ -2,10 +2,7 @@ package com.gfa.todo2.model;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Todo2 {
@@ -16,6 +13,10 @@ public class Todo2 {
   private String title;
   private boolean urgent;
   private boolean done;
+
+  @ManyToOne
+  @JoinColumn(name="todo2_id")
+  private Assignee assignee;
 
   public Todo2() {
   }

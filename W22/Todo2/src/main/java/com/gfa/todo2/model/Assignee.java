@@ -1,9 +1,8 @@
 package com.gfa.todo2.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Assignee {
@@ -13,6 +12,12 @@ public class Assignee {
   private long id;
   private String name;
   private String email;
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date createdAt;
+
+  @OneToMany(cascade = CascadeType.PERSIST)
+  @JoinColumn(name="assignee_id")
+  private List <Todo2> todo2s;
 
   public Assignee(){}
 
