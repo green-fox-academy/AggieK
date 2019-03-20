@@ -5,10 +5,7 @@ import com.gfa.todo2.service.AssigneeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -43,6 +40,19 @@ public class AssigneeController {
   @PostMapping("/add")
   public String addNewAssignee(@ModelAttribute Assignee newAssignee) {
     assigneeService.saveNewAssignee(newAssignee);
+    return "redirect:/assignee/list";
+  }
+
+  @GetMapping("/{id}/edit")
+  public String editAssignee(@PathVariable long id, @ModelAttribute Assignee assignee, Model model){
+    Assignee editAssignee = assigneeService.findAssigneeById(id);
+    model.addAttribute("assignee" , editAssignee);
+    return "assigneeEdit";
+  }
+
+  @GetMapping("/{id}/remove")
+  public String removeAssignee(@PathVariable long id){
+    assigneeService.removeAssignee(id);
     return "redirect:/assignee/list";
   }
 

@@ -17,8 +17,8 @@ public class AssigneeService {
     this.assigneeRepository = assigneeRepository;
   }
 
-  public ArrayList<Assignee> listAllAssignees (){
-    ArrayList<Assignee>assignees = new ArrayList<>();
+  public ArrayList<Assignee> listAllAssignees() {
+    ArrayList<Assignee> assignees = new ArrayList<>();
     assigneeRepository.findAll().forEach(assignees::add);
     return assignees;
   }
@@ -27,4 +27,11 @@ public class AssigneeService {
     assigneeRepository.save(assignee);
   }
 
+  public Assignee findAssigneeById(long id) {
+    return assigneeRepository.findById(id).get();
+  }
+
+  public void removeAssignee(long id) {
+    assigneeRepository.deleteById(id);
+  }
 }
