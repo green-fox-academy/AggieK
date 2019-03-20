@@ -22,4 +22,9 @@ public class AssigneeService {
     assigneeRepository.findAll().forEach(assignees::add);
     return assignees;
   }
+
+  public void saveNewAssignee(Assignee assignee) {
+    assigneeRepository.save(assignee);
+  }
+
 }

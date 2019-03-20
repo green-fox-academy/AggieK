@@ -16,6 +16,11 @@ public class Assignee {
 
   public Assignee(){}
 
+  public Assignee(String name, String email){
+    this.name=name;
+    this.email=email;
+  }
+
   public long getId() {
     return id;
   }
