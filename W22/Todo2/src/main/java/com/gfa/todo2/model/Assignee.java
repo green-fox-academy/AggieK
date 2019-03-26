@@ -12,14 +12,24 @@ public class Assignee {
   private long id;
   private String name;
   private String email;
-  @Temporal(TemporalType.TIMESTAMP)
-  private Date createdAt;
 
   @OneToMany(cascade = CascadeType.PERSIST)
   @JoinColumn(name="assignee_id")
-  private List <Todo2> todo2s;
+  List <Todo2> todo2s;
 
   public Assignee(){}
+
+//  public Assignee(String name){
+//    this.name=name;
+
+  public List<Todo2> getTodo2s() {
+    return todo2s;
+  }
+
+  public void setTodo2s(List<Todo2> todo2s) {
+    this.todo2s = todo2s;
+  }
+//  }
 
   public Assignee(String name, String email){
     this.name=name;

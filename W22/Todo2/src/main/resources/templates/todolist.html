@@ -13,7 +13,7 @@
 <div>
     <form action="/todo/list" method="get">
         <label for="title"> Search for description: </label>
-        <input type="text" id="title" name="title" th:value="${models}" placeholder="activity to search">
+        <input type="text" id="title" name="title" placeholder="activity to search">
         <input type="submit" value="Search">
     </form>
 
@@ -25,17 +25,27 @@
     <thead>
     <tr>
         <th th:text="ID" style="text-align: left"></th>
+        <th th:text="DATE" style="text-align: left"></th>
+        <!--<th th:text="DUE" style="text-align: left"></th>-->
         <th th:text="ACTION" style="text-align: left"></th>
         <th th:text="DONE" style="text-align: left"></th>
         <th th:text="URGENT" style="text-align: left"></th>
+        <th th:text="ASSIGNEE" style="text-align: left"></th>
+        <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="todo:${models}">
         <td th:text="${todo.id}" style="text-align: left"></td>
+        <td th:text="${#temporals.format(todo.createdAt,'yyyy-MM-DD')}"></td>
+        <!--<td th:text="${todo.dueDate == null}? '-&#45;&#45;': ${todo.dueDate}"></td>-->
         <td th:text="${todo.title}" style="text-align: left"></td>
         <td th:text="${todo.done}" style="text-align: left"></td>
         <td th:text="${todo.urgent}" style="text-align: left"></td>
+        <td>
+            <a th:href="'/assignee/' + ${todo.assignee?.id} +'/assignee_details'" th:text="${todo.assignee?.name}"></a>
+        </td>
         <td>
             <a th:href="'/todo/' + ${todo.id} + '/delete'" style="text-align: left">delete</a>
         </td>

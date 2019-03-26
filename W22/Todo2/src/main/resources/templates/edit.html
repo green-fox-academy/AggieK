@@ -11,13 +11,23 @@
     <form action="/assignee" method="get"></form>
 </div>
 <div>
-    <form action="'/todo/' + ${id}+ 'edit'" method="post" th:object="${todo}">
+    <form th:action="'/todo/' + ${id}+ '/edit'" method="post" th:object="${todo}">
         <label for="title">Todo description</label>
-        <input type="text" th:field="*{title}" name="title" id="title" required>
+        <input type="text" th:field="*{title}" name="title" id="title">
+        <label for="createdAt">Created at</label>
+        <input type="date" th:field="*{createdAt}" name="createdAt" id="createdAt">
+        <!--<label for="dueDate">Due on</label>-->
+        <!--<input type="date" th:field="*{dueDate}" name="dueDate" id="dueDate">-->
         <label for="isUrgent">Urgent</label>
-        <input type="checkbox" th:field="*{urgent}" name="isUrgent" id="isUrgent" required>
+        <input type="checkbox" th:field="*{urgent}" name="isUrgent" id="isUrgent">
         <label for="isDone">Done</label>
-        <input type="checkbox" th:field="*{done}" name="isDone" id="isDone" required>
+        <input type="checkbox" th:field="*{done}" name="isDone" id="isDone">
+        <label for="assignee">Assignee to:</label>
+        <select th:field="${todo.assignee}" id="assignee">
+            <option value=""> ---NONE---</option>
+            <option th:each="assignee:${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
+        </select>
+
  <p><input type="submit" value="Submit"></p>
     </form>
     <a href="/todo/list">Cancel</a>

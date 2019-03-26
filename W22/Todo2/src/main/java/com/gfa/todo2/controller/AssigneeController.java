@@ -38,16 +38,23 @@ public class AssigneeController {
   }
 
   @PostMapping("/add")
-  public String addNewAssignee(@ModelAttribute Assignee newAssignee) {
-    assigneeService.saveNewAssignee(newAssignee);
+  public String addNewAssignee(@ModelAttribute (name="name")String name, @ModelAttribute(name="email")String email) {
+    Assignee assignee = new Assignee(name, email);
+    assigneeService.saveNewAssignee(assignee);
     return "redirect:/assignee/list";
   }
 
   @GetMapping("/{id}/edit")
-  public String editAssignee(@PathVariable long id, @ModelAttribute Assignee assignee, Model model){
+  public String renderEditAssignee(@PathVariable long id, @ModelAttribute Assignee assignee, Model model){
     Assignee editAssignee = assigneeService.findAssigneeById(id);
     model.addAttribute("assignee" , editAssignee);
     return "assigneeEdit";
+  }
+
+  @PostMapping("/{id}/edit")
+  public String editAssignee(@ModelAttribute Assignee assignee, Model model){
+    assigneeService.editAssignee(assignee);
+    return "redirect:/assignee/list";
   }
 
   @GetMapping("/{id}/remove")
@@ -56,4 +63,10 @@ public class AssigneeController {
     return "redirect:/assignee/list";
   }
 
+  @GetMapping("/{id}/assignee_details")
+  public String renderDetails (@PathVariable long id, Model model){
+    Assignee assignee = assigneeService.findAssigneeById(id);
+    model.addAttribute("assignee", assignee);
+    return "assignee_details";
+  }
 }

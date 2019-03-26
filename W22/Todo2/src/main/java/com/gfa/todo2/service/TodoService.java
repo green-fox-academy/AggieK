@@ -3,7 +3,6 @@ package com.gfa.todo2.service;
 import com.gfa.todo2.model.Todo2;
 import com.gfa.todo2.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -45,5 +44,9 @@ public class TodoService {
 
   public Todo2 findTodoById(long id) {
     return todoRepository.findById(id).get();
+  }
+
+  public void editTodo(Todo2 todo2) {
+    todoRepository.save(todo2);
   }
 }

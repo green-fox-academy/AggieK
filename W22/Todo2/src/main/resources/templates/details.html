@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Details of Todos</title>
+</head>
+<body>
+<h1 th:text="'Todos of ' + ${todo2.assignee.name}"></h1>
+<br>
+<div>
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td th:text="${todo2.id}"></td>
+        </tr>
+        <tr>
+            <td>DESCRIPTION:</td>
+            <td th:text="${todo2.title}"></td>
+        </tr>
+        <tr>
+            <td>COMPLETED</td>
+            <td th:text="${todo2.done}"></td>
+        </tr>
+        <tr>
+            <td>URGENT</td>
+            <td th:text="${todo2.urgent}"></td>
+        </tr>
+        <tr>
+            <td>Created at</td>
+            <td th:text="${#temporals.format(todo2.createdAt, 'yyyy-MM-DD')}"></td>
+        </tr>
+        <tr>
+            <td>DUE DATE</td>
+            <td th:text="${#temporals.format(todo2.dueDate, 'yyyy-MM-DD')}"></td>
+        </tr>
+    </table>
+    <a href="/todo/list">Back</a>
+</div>
+</body>
+</html>
