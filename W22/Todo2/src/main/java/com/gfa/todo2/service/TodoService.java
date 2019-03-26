@@ -49,4 +49,8 @@ public class TodoService {
   public void editTodo(Todo2 todo2) {
     todoRepository.save(todo2);
   }
+
+  public ArrayList<Todo2> findTodoByName(String title){
+    return todoRepository.findByTitleContaining(title);
+  }
 }

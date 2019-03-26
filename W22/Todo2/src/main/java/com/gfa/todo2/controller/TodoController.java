@@ -32,6 +32,19 @@ public class TodoController {
 //    return "This is my first Todo";
 //  }
 
+  @PostMapping("/list")
+  public String todoList(Model model, @RequestParam(required = false) String word) {
+    ArrayList<Todo2> filteredTodos = new ArrayList<>();
+    if (word == null) {
+      filteredTodos = todoService.listAllItems();
+    } else {
+      filteredTodos = todoService.findTodoByName(word);
+    }
+    model.addAttribute("models", filteredTodos);
+    model.addAttribute("attribute", assigneeService.listAllAssignees());
+    return "todolist";
+  }
+
   @GetMapping("/list")
   public String todoList(Model model, @RequestParam(required = false) boolean isActive) {
     if (!isActive) {
@@ -42,6 +55,7 @@ public class TodoController {
     model.addAttribute("attribute", assigneeService.listAllAssignees());
     return "todolist";
   }
+
 
   @GetMapping("/add")
   public String renderAddPage() {
@@ -76,7 +90,7 @@ public class TodoController {
   }
 
   @GetMapping("/{id}/details")
-    public String renderTodoDetails(@PathVariable long id, Model model){
+  public String renderTodoDetails(@PathVariable long id, Model model) {
     Todo2 todo = todoService.findTodoById(id);
     model.addAttribute("todo2", todo);
     return "details";
