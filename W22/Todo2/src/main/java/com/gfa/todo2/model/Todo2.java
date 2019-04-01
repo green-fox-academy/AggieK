@@ -13,11 +13,11 @@ public class Todo2 {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   private String title;
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-  private LocalDate createdAt;
   private boolean urgent;
   private boolean done;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
   private LocalDate dueDate;
+  private LocalDateTime createdAt;
 
 
   @ManyToOne
@@ -25,7 +25,7 @@ public class Todo2 {
   private Assignee assignee;
 
   public Todo2(){
-    this.createdAt= LocalDate.now();
+    this.createdAt= LocalDateTime.now();
 }
 
   public LocalDate getDueDate() {
@@ -36,11 +36,11 @@ public class Todo2 {
     this.dueDate = dueDate;
   }
 
-  public LocalDate getCreatedAt() {
+  public LocalDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(LocalDate createdAt) {
+  public void setCreatedAt(LocalDateTime createdAt) {
     this.createdAt = createdAt;
   }
 

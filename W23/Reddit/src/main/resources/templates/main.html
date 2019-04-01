@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>Your Posts</title>
+</head>
+<body>
+<div>
+    <a href="/submit">Submit a new post</a>
+</div>
+<div>
+    <h1 style="text-align: center">Trending posts</h1>
+</div>
+<div>
+    <table>
+        <tr th:each="post:${models}" th:object="${post}">
+            <td th:text="*{score}"></td>
+            <td><a th:href="${post.id} + '/upvote'" role="button" th:style:width=100px>+</a></td>
+            <td><a th:href="${post.id} + '/downvote'" role="button">-</a></td>
+            <td><a th:text="${post.title}" th:href="${post.address}"></a></td>
+            <td th:text="${#temporals.format(post.createdAt, 'yyyy-MM-dd')}"></td>
+            <td><a th:href="${post.id} + '/remove'">Delete</a></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a th:href="${page}+1">Next 10</a>
+    <a>Previous 10</a>
+</div>
+</body></html>

@@ -63,9 +63,8 @@ public class TodoController {
   }
 
   @PostMapping("/add")
-  public String addNewTodo(@ModelAttribute(name = "title") String title) {
-    Todo2 todo = new Todo2(title);
-    todoService.saveNewTodo(todo);
+  public String addNewTodo(@ModelAttribute Todo2 todo2) {
+    todoService.saveNewTodo(todo2);
     return "redirect:/todo/list";
   }
 
