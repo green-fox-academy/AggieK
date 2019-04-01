@@ -2,6 +2,7 @@ package com.example.frontend.controllers;
 
 import com.example.frontend.modells.*;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +28,14 @@ public class DoublingController {
       return new MyError("Please provide a name!");
     } else return new Greeting(name, title);
   }
+
+  @GetMapping("/appenda/{appendable}")
+  public Object renderAppendA(@PathVariable String appendable){
+    if (appendable == null){
+      return "redirect:/error";
+    } else return new AppendA(appendable);
+  }
+
 
 
 }
