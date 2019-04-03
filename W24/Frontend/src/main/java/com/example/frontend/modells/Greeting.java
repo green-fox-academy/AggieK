@@ -6,10 +6,10 @@ public class Greeting {
   private String title;
   private String welcome_message;
 
-  public Greeting(String myName, String myTitle) {
-    this.name = myName;
-    this.title = myTitle;
-    this.welcome_message = "Oh, hi there " + myName + ", my dear " + myTitle + " !";
+  public Greeting(String name, String title) {
+    this.name = name;
+    this.title = title;
+    this.welcome_message = "Oh, hi there " + name + ", my dear " + title + "!";
   }
 
   public String getName() {

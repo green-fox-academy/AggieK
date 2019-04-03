@@ -19,15 +19,6 @@ public class Post {
   private String title;
   private String address;
   private int score;
-
-  public LocalDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(LocalDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
   private LocalDateTime createdAt;
 
   public Post(){this.createdAt = LocalDateTime.now();}
@@ -36,6 +27,14 @@ public class Post {
     this.title = title;
     this.address = address;
     this.createdAt = LocalDateTime.now();
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
   public long getId() {
