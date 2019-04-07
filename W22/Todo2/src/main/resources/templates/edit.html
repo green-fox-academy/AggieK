@@ -22,7 +22,7 @@
         <input type="checkbox" th:field="*{urgent}" name="isUrgent" id="isUrgent">
         <label for="isDone">Done</label>
         <input type="checkbox" th:field="*{done}" name="isDone" id="isDone">
-        <label for="assignee">Assignee to:</label>
+        <label for="assignee"> Assigned to:</label>
         <select th:field="${todo.assignee}" id="assignee">
             <option value=""> ---NONE---</option>
             <option th:each="assignee:${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"></option>

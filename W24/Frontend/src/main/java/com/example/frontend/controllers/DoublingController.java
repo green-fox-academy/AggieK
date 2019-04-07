@@ -1,6 +1,6 @@
 package com.example.frontend.controllers;
 
-import com.example.frontend.modells.*;
+import com.example.frontend.models.*;
 import com.example.frontend.service.LogService;
 import com.example.frontend.service.RestService;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ public class DoublingController {
   @GetMapping("/doubling")
   public Object doubleInput(@RequestParam(required = false) Integer input) {
 
-    logService.saveLog(new Log("/doubling", "input=" + input ));
+    logService.saveLog(new Log("/doubling", "input=" + input));
 
     if (input == null) {
       return new MyError("Please provide an input!");
@@ -33,7 +33,7 @@ public class DoublingController {
   public Object greetSomeone(@RequestParam(required = false) String name,
                              @RequestParam(required = false) String title) {
 
-    logService.saveLog(new Log("/greeter", "name=" + name +"&title=" + title ));
+    logService.saveLog(new Log("/greeter", "name=" + name + "&title=" + title));
 
     if (name == null && title == null) {
       return new MyError("Please provide a name and a title!");
@@ -46,7 +46,7 @@ public class DoublingController {
 
   @GetMapping("/appenda/{appendable}")
   public Object renderAppendA(@PathVariable String appendable) {
-    logService.saveLog(new Log("/appendable/"+ appendable, "appendable= " + appendable));
+    logService.saveLog(new Log("/appendable/" + appendable, "appendable= " + appendable));
     if (appendable == null) {
       return "redirect:/error";
     } else return new AppendA(appendable);
@@ -77,7 +77,7 @@ public class DoublingController {
 
   @PostMapping("/arrays")
   public ResponseEntity<Object> arrayHandler(@RequestBody(required = false) ArrayHandler arrayHandler) {
-    logService.saveLog(new Log("/arrays" , "what:" + arrayHandler.getWhat() + "& numbers:" + arrayHandler.getNumbers()));
+    logService.saveLog(new Log("/arrays", "what:" + arrayHandler.getWhat() + "& numbers:" + arrayHandler.getNumbers()));
     if (arrayHandler == null) {
       return ResponseEntity.status(404).body(new MyError("valami nem jo!"));
     }
@@ -101,8 +101,8 @@ public class DoublingController {
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new MyError("Please provide a NUMBERS field to do something with the numbers!"));
   }
 
-//  @GetMapping ("/log")
-
-
-
+  @GetMapping("/log")
+  public LogList listTheLog() {
+    return logService.createLogList();
+  }
 }

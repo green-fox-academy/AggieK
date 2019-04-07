@@ -1,4 +1,4 @@
-package com.example.frontend.modells;
+package com.example.frontend.models;
 
 public class AppendA {
 

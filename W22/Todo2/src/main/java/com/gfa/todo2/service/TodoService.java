@@ -50,7 +50,8 @@ public class TodoService {
     todoRepository.save(todo2);
   }
 
-  public ArrayList<Todo2> findTodoByName(String title){
+  public ArrayList<Todo2> findTodoByName(String title)
+  {
     return todoRepository.findByTitleContaining(title);
   }
 }

@@ -1,12 +1,14 @@
-package com.example.frontend.modells;
+package com.example.frontend.models;
 
-public class Result {
+public class ArrayHandlerIntResult {
 
   private int result;
 
-  public Result(int result) {
+  public ArrayHandlerIntResult(int result) {
     this.result = result;
   }
+
+  public ArrayHandlerIntResult(){}
 
   public int getResult() {
     return result;

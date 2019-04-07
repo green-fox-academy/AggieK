@@ -32,8 +32,19 @@ public class TodoController {
 //    return "This is my first Todo";
 //  }
 
+  @GetMapping("/list")
+  public String todoList(Model model, boolean isActive) {
+    if (!isActive) {
+      model.addAttribute("models", todoService.listUndoneItems());
+    } else {
+      model.addAttribute("models", todoService.listAllItems());
+    }
+    model.addAttribute("attribute", assigneeService.listAllAssignees());
+    return "todolist";
+  }
+
   @PostMapping("/list")
-  public String todoList(Model model, @RequestParam(required = false) String word) {
+  public String todoList(Model model, String word) {
     ArrayList<Todo2> filteredTodos = new ArrayList<>();
     if (word == null) {
       filteredTodos = todoService.listAllItems();
@@ -41,17 +52,6 @@ public class TodoController {
       filteredTodos = todoService.findTodoByName(word);
     }
     model.addAttribute("models", filteredTodos);
-    model.addAttribute("attribute", assigneeService.listAllAssignees());
-    return "todolist";
-  }
-
-  @GetMapping("/list")
-  public String todoList(Model model, @RequestParam(required = false) boolean isActive) {
-    if (!isActive) {
-      model.addAttribute("models", todoService.listUndoneItems());
-    } else {
-      model.addAttribute("models", todoService.listAllItems());
-    }
     model.addAttribute("attribute", assigneeService.listAllAssignees());
     return "todolist";
   }
@@ -75,7 +75,7 @@ public class TodoController {
   }
 
   @GetMapping("/{id}/edit")
-  public String renderEditPage(@PathVariable long id, @ModelAttribute Todo2 todo2, Model model) {
+  public String renderEditPage(@PathVariable long id, Model model) {
     Todo2 editTodo = todoService.findTodoById(id);
     model.addAttribute("todo", editTodo);
     model.addAttribute("assignees", assigneeService.listAllAssignees());
@@ -83,7 +83,7 @@ public class TodoController {
   }
 
   @PostMapping("/{id}/edit")
-  public String editTodoOrAssignee(@ModelAttribute Todo2 todo2, Model model) {
+  public String editTodoOrAssignee(@ModelAttribute Todo2 todo2) {
     todoService.saveNewTodo(todo2);
     return "redirect:/todo/list";
   }

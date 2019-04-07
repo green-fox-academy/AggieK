@@ -1,12 +1,8 @@
 package com.example.frontend.service;
 
-import com.example.frontend.modells.ArrayHandler;
-import com.example.frontend.modells.ArrayHandlerArrayResult;
-import com.example.frontend.modells.ArrayHandlerIntResult;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.frontend.models.ArrayHandlerArrayResult;
+import com.example.frontend.models.ArrayHandlerIntResult;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 
 @Service
 public class RestService {
