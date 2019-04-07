@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <h1>Please provide a URL and an alias: </h1>
+<br>
+<h2 th:text="'Your URL is aliased to ' + ${newMyURL.alias}+ ', and your secret code is: ' + ${newMyURL.secret_code }+ '.'"></h2>
 <br>
 <div>
     <form action="/save-link" method="post">
@@ -20,6 +22,5 @@
         <input type="submit" value="Submit">
     </form>
 </div>
-
 </body>
 </html>

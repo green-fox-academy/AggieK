@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Url {
+public class MyURL {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,12 +16,12 @@ public class Url {
   private int hit_count;
   private int secret_code;
 
-  public Url() {}
+  public MyURL() {}
 
-  public Url(String url, String alias) {
+  public MyURL(String url, String alias) {
     this.url = url;
     this.alias = alias;
-    this.secret_code=(int)(Math.random()*9999);
+    this.secret_code=(int)(Math.random()*9999)+1;
   }
 
   public long getId() {
